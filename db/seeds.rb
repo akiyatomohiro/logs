@@ -33,3 +33,34 @@ User.create!(
                password:              password,
                password_confirmation: password)
 end
+
+
+
+
+
+
+# 料理
+description1 = "冬に食べたくなる、身体が温まる料理です。"
+description2 = "栄養バランスが良いオススメ料理です。"
+description3 = "スピード重視の簡単料理！"
+
+
+Dish.create!(
+  [
+    {
+      name: "肉じゃが",
+      user_id: 1,
+      description: description1,
+    },
+    {
+      name: "ソーセージと卵の炒め物",
+      user_id: 1,
+      description: description2,
+    },
+    {
+      name: "かに玉",
+      user_id: 2,
+      description: description3,
+    },
+  ]
+)

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_14_091828) do
+ActiveRecord::Schema.define(version: 2021_08_14_121919) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "dish_id"
+    t.integer "user_id"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_comments_on_dish_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "dishes", force: :cascade do |t|
     t.string "name"
@@ -24,8 +34,54 @@ ActiveRecord::Schema.define(version: 2021_08_14_091828) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "picture"
     t.index ["user_id", "created_at"], name: "index_dishes_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_dishes_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "dish_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "dish_id"], name: "index_favorites_on_user_id_and_dish_id", unique: true
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.integer "dish_id"
+    t.string "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_ingredients_on_dish_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "dish_id"
+    t.integer "from_user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
+  create_table "logs", force: :cascade do |t|
+    t.integer "dish_id"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_logs_on_dish_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "dish_id"
+    t.integer "variety"
+    t.text "content"
+    t.integer "from_user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -48,6 +104,7 @@ ActiveRecord::Schema.define(version: 2021_08_14_091828) do
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "admin"
+    t.boolean "notification", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

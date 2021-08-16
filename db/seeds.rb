@@ -41,6 +41,14 @@ user3 = User.find(3)
 user3.follow(user1)
 user3.follow(user2)
 
+# 以下のリレーションシップを作成する
+users = User.all
+user  = users.third
+following = users[3..50]
+followers = users[4..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
+
 # 料理
 portion = 2
 description1 = "冬に食べたくなる、身体が温まる料理です。"

@@ -1,11 +1,8 @@
 # アプリケーションの概要
-作った料理を記録して共有できる、料理投稿SNSサービス。 https://cooklog-v3.herokuapp.com
+作った料理を記録して共有できる、料理投稿SNSサービス。 https://mighty-mountain-87399.herokuapp.com
 
 # 技術的ポイント
-・**RSpec**でModel, Request, Systemテスト記述（計219examples）  
 ・**Ajax**を用いた非同期処理（フォロー/未フォロー、お気に入り登録/未登録などの切り替え表示）  
-・**Bootstrap**によるレスポンシブ対応  
-・**Rubocop**を使用したコード規約に沿った開発  
 ・**9つのモデル**をそれぞれ関連付けて使用  
 
 # アプリケーションの機能

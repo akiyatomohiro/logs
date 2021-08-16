@@ -13,7 +13,11 @@ gem 'webpacker',  '4.0.7'
 gem 'turbolinks', '5.2.0'
 gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.5', require: false
+gem 'carrierwave',             '1.2.2'
+gem "mini_magick",             '>= 4.9.4'
 gem 'ransack'
+gem 'jquery-rails', '4.3.1'
+
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
@@ -40,6 +44,7 @@ end
 
 group :production do
   gem 'pg', '1.1.4'
+  gem 'fog', '1.42'
 end
 
 # Windows ではタイムゾーン情報用の tzinfo-data gem を含める必要があります

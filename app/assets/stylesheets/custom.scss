@@ -1,5 +1,4 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+
 
 $main-magenta: #dd356e;
 $main-yellow: #fee856;
@@ -697,3 +696,5 @@ table.ingredient tr:nth-child(odd) {
   margin-top: 45px;
   @include box_sizing;
 }
+
+

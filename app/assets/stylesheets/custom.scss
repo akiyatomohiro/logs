@@ -33,7 +33,7 @@ $main-yellow: #fee856;
 @media screen and (max-width: 768px) {
   #logo {
     img {
-      max-width: 400%;
+      max-width: 200%;
       height: auto;
       box-sizing: border-box;
     }
@@ -696,5 +696,3 @@ table.ingredient tr:nth-child(odd) {
   margin-top: 45px;
   @include box_sizing;
 }
-
-
